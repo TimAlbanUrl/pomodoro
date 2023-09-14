@@ -15,7 +15,7 @@ function run() {
     let interval = setInterval(updateTime, 1000)
 }
 
-function updateClock() {
+function updateClock() { //used to update the state of the pie chart used as a clock display
     let pie
     if(active) {
         pie = 360 * time / workTime
@@ -44,7 +44,7 @@ function reset() {
     location.reload()
 }
 
-function updateTime() {
+function updateTime() { //used to update the timer, decrement the time variable and transform it from seconds to minutes/seconds
     time--
     if(time < 0) { //time ran out
         if(active) { //switching to pause
@@ -57,7 +57,7 @@ function updateTime() {
         }
         updateModeDisplay()
    }
-    const minutes = Math.floor(time / 60)
+    const minutes = Math.floor(time / 60) //transforming seconds only to minutes/seconds
     const seconds = time - minutes * 60
     let str = ''
     if(minutes.toString().length < 2) { //handling the format of minutes
@@ -77,7 +77,7 @@ function updateTime() {
     updateClock()
 }
 
-function updateModeDisplay() {
+function updateModeDisplay() { //used to update the color of the mode the application is in
     if(active) {
         pWork.style.color = 'crimson'
         pPause.style.color = 'white'
