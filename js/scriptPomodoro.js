@@ -3,10 +3,12 @@ const timer = document.getElementById('timer')
 const button = document.querySelectorAll('button')[0]
 const pWork = document.getElementById('pWork')
 const pPause = document.getElementById('pPause')
-const workTime = 1500
-const pauseTime = 300
 
-let time = workTime
+let workInput
+let pauseInput
+let workTime
+let pauseTime
+let time
 let active = true
 let running = false
 
@@ -29,16 +31,25 @@ function updateClock() { //used to update the state of the pie chart used as a c
 
 button.addEventListener('click', () => {
     if(!running) {
-        time++
-        updateTime()
-        updateModeDisplay()
-        run()
-        running = true
+        setUp()
     }
     else {
         reset()
     }
 })
+
+function setUp() {
+    workInput = document.getElementById('workTime').value
+    pauseInput = document.getElementById('pauseTime').value
+    workTime = workInput * 60
+    pauseTime = pauseInput * 60
+    time = workTime
+    time++
+    updateTime()
+    updateModeDisplay()
+    run()
+    running = true
+}
 
 function reset() {
     location.reload()
