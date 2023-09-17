@@ -3,6 +3,8 @@ const timer = document.getElementById('timer')
 const button = document.querySelectorAll('button')[0]
 const pWork = document.getElementById('pWork')
 const pPause = document.getElementById('pPause')
+const workSelection = document.getElementById('workTime')
+const pauseSelection = document.getElementById('pauseTime')
 
 let workInput
 let pauseInput
@@ -12,6 +14,15 @@ let time
 let active = true
 let running = false
 
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    if(sessionStorage.getItem('work') != null) { //checking if the user has ever modified the time selection before
+        workSelection.value = parseInt(sessionStorage.getItem('work')) / 60
+    }
+    if(sessionStorage.getItem('pause') != null) {
+        pauseSelection.value = parseInt(sessionStorage.getItem('pause')) / 60
+    }
+});
 
 function run() {
     let interval = setInterval(updateTime, 1000)
@@ -97,4 +108,11 @@ function updateModeDisplay() { //used to update the color of the mode the applic
         pWork.style.color = 'white'
         pPause.style.color = 'crimson'
     }
+}
+
+workSelection.onchange = function() { //store the input from the user in the session storage
+    sessionStorage.setItem('work', document.getElementById('workTime').value * 60)
+}
+pauseSelection.onchange = function() {
+    sessionStorage.setItem('pause', document.getElementById('pauseTime').value * 60)
 }
