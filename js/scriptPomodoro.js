@@ -11,14 +11,27 @@ let pauseInput
 let workTime
 let pauseTime
 let time
+
 let active = true
 let running = false
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    console.log(parseInt(localStorage.getItem('pause')) / 60)
     if(localStorage.getItem('work') != null) { //checking if the user has ever modified the time selection before
-        workSelection.value = parseInt(localStorage.getItem('work')) / 60
-        timer.innerText = `${parseInt(localStorage.getItem('work')) / 60}:00`
+        // updating the timer to display the stored values
+        let minutesSeconds = parseInt(localStorage.getItem('work')) / 60
+        workSelection.value = minutesSeconds
+        minutesSeconds = minutesSeconds.toString()
+        let minutes = minutesSeconds.split('.')[0]
+        let seconds = '00'
+        if(minutesSeconds.split('.').length > 1) { //in case the user saved a decimal minute value
+            seconds = parseInt(minutesSeconds.split('.')[1]) * 6
+            if(seconds.toString().length < 2) {
+                seconds = '0'.concat(seconds)
+            }
+        }
+        timer.innerText = `${minutes}:${seconds}` //updating the timer on page load if local storage isn't empty 
     }
     if(localStorage.getItem('pause') != null) {
         pauseSelection.value = parseInt(localStorage.getItem('pause')) / 60
