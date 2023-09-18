@@ -46,12 +46,12 @@ function updateClock() { //used to update the state of the pie chart used as a c
     let pie
     if(active) {
         pie = 360 * time / workTime
+        clock.style.backgroundImage = ''.concat('conic-gradient(crimson ', pie, 'deg, black 0)')
     }
     else {
         pie = 360 * time / pauseTime
+        clock.style.backgroundImage = ''.concat('conic-gradient(#209c2e ', pie, 'deg, black 0)')
     }
-
-    clock.style.backgroundImage = ''.concat('conic-gradient(crimson ', pie, 'deg, black 0)')
 }
 
 button.addEventListener('click', () => {
@@ -120,7 +120,7 @@ function updateModeDisplay() { //used to update the color of the mode the applic
     }
     else {
         pWork.style.color = 'white'
-        pPause.style.color = 'crimson'
+        pPause.style.color = '#209c2e'
     }
 }
 
