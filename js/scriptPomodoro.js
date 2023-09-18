@@ -16,11 +16,12 @@ let running = false
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    if(sessionStorage.getItem('work') != null) { //checking if the user has ever modified the time selection before
-        workSelection.value = parseInt(sessionStorage.getItem('work')) / 60
+    if(localStorage.getItem('work') != null) { //checking if the user has ever modified the time selection before
+        workSelection.value = parseInt(localStorage.getItem('work')) / 60
+        timer.innerText = `${parseInt(localStorage.getItem('work')) / 60}:00`
     }
-    if(sessionStorage.getItem('pause') != null) {
-        pauseSelection.value = parseInt(sessionStorage.getItem('pause')) / 60
+    if(localStorage.getItem('pause') != null) {
+        pauseSelection.value = parseInt(localStorage.getItem('pause')) / 60
     }
 });
 
@@ -111,8 +112,8 @@ function updateModeDisplay() { //used to update the color of the mode the applic
 }
 
 workSelection.onchange = function() { //store the input from the user in the session storage
-    sessionStorage.setItem('work', document.getElementById('workTime').value * 60)
+    localStorage.setItem('work', document.getElementById('workTime').value * 60)
 }
 pauseSelection.onchange = function() {
-    sessionStorage.setItem('pause', document.getElementById('pauseTime').value * 60)
+    localStorage.setItem('pause', document.getElementById('pauseTime').value * 60)
 }
