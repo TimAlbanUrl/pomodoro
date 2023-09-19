@@ -43,7 +43,7 @@ main {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #0d11e3;
     border: none;
     position: relative;
     top: 100px;
@@ -54,4 +54,20 @@ button {
     font-weight: 700;
     cursor: pointer;
     justify-content: center;
+}
+
+.timeSelection {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.timeSelection input {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.timeSelection label {
+    margin-top: 20px;
+    margin-bottom: 3px;
 }

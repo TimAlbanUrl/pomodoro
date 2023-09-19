@@ -5,7 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Noto+Sans+Khojki&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styleTest.css">
+    <link rel="stylesheet" href="./css/stylePomodoro.css">
     <title>Pomodoro</title>
 </head>
 <body>
@@ -20,7 +20,14 @@
         </div>
 
         <div class="active_inidcator">
-            <button>Start/Stop</button>
+            <button>Start/Reset</button>
+        </div>
+
+        <div class="timeSelection">
+            <label>Work time (minutes)</label>
+            <input type="number" id="workTime" value="25" min="1" max="59">
+            <label>Pause time (minutes)</label>
+            <input type="number" id="pauseTime" value="5" min="1" max="59">
         </div>
     </main>
     <script src="./js/scriptPomodoro.js"></script>
