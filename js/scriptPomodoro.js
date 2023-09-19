@@ -110,6 +110,7 @@ function updateTime() { //used to update the timer, decrement the time variable 
         str += seconds.toString()
     }
     timer.innerText = str
+    timer.style.left = '27.3%'
     updateClock()
 }
 
