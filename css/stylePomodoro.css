@@ -71,3 +71,19 @@ button {
     margin-top: 20px;
     margin-bottom: 3px;
 }
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: darkorchid;
+    text-align: center;
+    padding: 30px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
